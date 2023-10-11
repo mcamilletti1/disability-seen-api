@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import MovieListCreate, MovieDetail, CastListCreate, CastDetail, ReviewListCreate, ReviewDetail
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('', MovieListCreate.as_view(), name='movie-list-create'),
@@ -10,4 +11,6 @@ urlpatterns = [
 
     path('reviews/', ReviewListCreate.as_view(), name='review-list-create'),
     path('reviews/<int:pk>/', ReviewDetail.as_view(), name='review-detail'),
+    path('login/', auth_views.LoginView.as_view(), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
 ]
