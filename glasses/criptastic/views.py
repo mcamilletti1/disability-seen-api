@@ -1,16 +1,27 @@
-from django.shortcuts import render
-from rest_framework import viewsets
-from .models import Cast, Movie, Review
-from .serializers import CastSerializer, MovieSerializer, ReviewSerializer
+from rest_framework import generics
+from .models import Movie, Cast, Review
+from .serializers import MovieSerializer, CastSerializer, ReviewSerializer
 
-class CastViewSet(viewsets.ModelViewSet):
-    queryset = Cast.objects.all()
-    serializer_class = CastSerializer
-
-class MovieViewSet(viewsets.ModelViewSet):
+class MovieListCreate(generics.ListCreateAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
-class ReviewViewSet(viewsets.ModelViewSet):
+class MovieDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+
+class CastListCreate(generics.ListCreateAPIView):
+    queryset = Cast.objects.all()
+    serializer_class = CastSerializer
+
+class CastDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Cast.objects.all()
+    serializer_class = CastSerializer
+
+class ReviewListCreate(generics.ListCreateAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
+
+class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
