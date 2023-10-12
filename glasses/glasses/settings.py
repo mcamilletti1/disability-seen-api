@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'glasses.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'database-1',
+        'USER': 'postgres',
+        'PASSWORD': 'Steven916!',
+        'HOST': 'database-1.cp9fwmre6uzu.us-east-2.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
