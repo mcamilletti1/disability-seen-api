@@ -5,7 +5,6 @@ from . models import *
 class CastSerializer(serializers.HyperlinkedModelSerializer):
     movie = serializers.PrimaryKeyRelatedField(
         queryset = Movie.objects.all(),
-        write_only=True
     )
 
     class Meta:
@@ -16,7 +15,6 @@ class CastSerializer(serializers.HyperlinkedModelSerializer):
 class MovieSerializer(serializers.HyperlinkedModelSerializer):
     cast_members = CastSerializer(
         many=True,
-        read_only=True
     )
 
     movie_url = serializers.ModelSerializer.serializer_url_field(
