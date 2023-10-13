@@ -1,6 +1,8 @@
 from django.urls import path
 from . import views
 
+app_name = 'criptastic'
+
 urlpatterns = [
     path('', views.MovieList.as_view(), name='movie_list'),
     path('cast/', views.CastList.as_view(), name='cast_list'),
