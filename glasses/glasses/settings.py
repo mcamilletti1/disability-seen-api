@@ -82,12 +82,12 @@ WSGI_APPLICATION = 'glasses.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'database-1',
-        'USER': 'postgres',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'glasses',
+        'USER': 'mcamilletti1',
         'PASSWORD': 'Steven916!',
-        'HOST': 'database-1.cp9fwmre6uzu.us-east-2.rds.amazonaws.com',
-        'PORT': '5432',
+        'HOST': 'mcamilletti1.mysql.pythonanywhere-services.com',
+        'PORT': '3306',
     }
 }
 
