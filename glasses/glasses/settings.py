@@ -63,6 +63,13 @@ MIDDLEWARE = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+    # other DRF settings...
+}
+
 ROOT_URLCONF = 'glasses.urls'
 
 TEMPLATES = [

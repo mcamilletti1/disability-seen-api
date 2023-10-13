@@ -2,34 +2,50 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework.filters import SearchFilter, OrderingFilter 
 from .models import Movie, Cast, Review
 from .serializers import MovieSerializer, CastSerializer, ReviewSerializer
-from django.views.decorators.csrf import csrf_exempt
+from rest_framework.views import APIView
+from rest_framework.response import Response
 
-@csrf_exempt
+
 class MovieList(ListCreateAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
     filter_backends = [SearchFilter, OrderingFilter]
     search_fields = ['media_type']
+    def get(self, request, format=None):
+        content = {
+            'status': 'request was permitted'
+        }
+        return Response(content)
 
 
 class MovieDetail(RetrieveUpdateDestroyAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
-@csrf_exempt
+
 class CastList(ListCreateAPIView):
     queryset = Cast.objects.all()
     serializer_class = CastSerializer
+    def get(self, request, format=None):
+        content = {
+            'status': 'request was permitted'
+        }
+        return Response(content)
 
 
 class CastDetail(RetrieveUpdateDestroyAPIView):
     queryset = Cast.objects.all()
     serializer_class = CastSerializer
 
-@csrf_exempt
+
 class ReviewList(ListCreateAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+    def get(self, request, format=None):
+        content = {
+            'status': 'request was permitted'
+        }
+        return Response(content)
 
 class ReviewDetail(RetrieveUpdateDestroyAPIView):
     queryset = Review.objects.all()
