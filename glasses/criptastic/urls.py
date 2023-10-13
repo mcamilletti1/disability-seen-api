@@ -7,7 +7,6 @@ urlpatterns = [
     path('', views.MovieList.as_view(), name='movie_list'),
     path('cast/', views.CastList.as_view(), name='cast_list'),
     path('reviews/', views.ReviewList.as_view(), name='review_list'),
-    path('movies/', views.MovieList.as_view(), name='movie_list'),
     path('movies/<int:pk>/', views.MovieDetail.as_view(), name='movie_detail'),
     path('cast/<int:pk>/', views.CastDetail.as_view(), name='cast_detail'),
     path('reviews/<int:pk>/', views.ReviewDetail.as_view(), name='review_detail'),
