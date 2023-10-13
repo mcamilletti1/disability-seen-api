@@ -2,8 +2,9 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework.filters import SearchFilter, OrderingFilter 
 from .models import Movie, Cast, Review
 from .serializers import MovieSerializer, CastSerializer, ReviewSerializer
+from django.views.decorators.csrf import csrf_exempt
 
-
+@csrf_exempt
 class MovieList(ListCreateAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
@@ -15,7 +16,7 @@ class MovieDetail(RetrieveUpdateDestroyAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
 
-
+@csrf_exempt
 class CastList(ListCreateAPIView):
     queryset = Cast.objects.all()
     serializer_class = CastSerializer
@@ -25,7 +26,7 @@ class CastDetail(RetrieveUpdateDestroyAPIView):
     queryset = Cast.objects.all()
     serializer_class = CastSerializer
 
-
+@csrf_exempt
 class ReviewList(ListCreateAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
