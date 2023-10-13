@@ -13,17 +13,23 @@ class CastSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class MovieSerializer(serializers.HyperlinkedModelSerializer):
-    cast_members = CastSerializer(
-        many=True,
-    )
-
-    movie_url = serializers.ModelSerializer.serializer_url_field(
-        view_name='movie_detail'
-    )
+    cast_members = CastSerializer(many=True, read_only=False)
+    movie_url = serializers.HyperlinkedIdentityField(view_name='movie_detail', read_only=True)
 
     class Meta:
         model = Movie
         fields = '__all__'
+
+    def create(self, validated_data):
+        cast_members_data = validated_data.pop('cast_members', None)  # Remove the cast_members data from the validated data.
+        movie = Movie.objects.create(**validated_data)  # Create the movie instance without the cast_members data.
+
+        # If there are cast members, create each one.
+        if cast_members_data:
+            for cast_member_data in cast_members_data:
+                Cast.objects.create(movie=movie, **cast_member_data)
+
+        return movie
 
 
 class ReviewSerializer(serializers.HyperlinkedModelSerializer):
