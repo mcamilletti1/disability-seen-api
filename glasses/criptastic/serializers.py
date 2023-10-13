@@ -14,7 +14,7 @@ class CastSerializer(serializers.HyperlinkedModelSerializer):
 
 class MovieSerializer(serializers.HyperlinkedModelSerializer):
     cast_members = CastSerializer(many=True, read_only=False)
-    movie_url = serializers.HyperlinkedIdentityField(view_name='criptastic:movie_detail')
+    movie_url = serializers.HyperlinkedIdentityField(view_name='criptastic:movie_detail', lookup_field='pk')
 
     class Meta:
         model = Movie

@@ -23,6 +23,7 @@ class MovieList(ListCreateAPIView):
 class MovieDetail(RetrieveUpdateDestroyAPIView):
     queryset = Movie.objects.all()
     serializer_class = MovieSerializer
+    lookup_field = 'pk'
 
 
 class CastList(ListCreateAPIView):
