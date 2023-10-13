@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'glasses.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'glasses',
+        'NAME': 'mcamilletti1$glasses ',
         'USER': 'mcamilletti1',
         'PASSWORD': 'Steven916!',
         'HOST': 'mcamilletti1.mysql.pythonanywhere-services.com',
