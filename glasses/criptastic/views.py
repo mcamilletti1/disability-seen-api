@@ -13,3 +13,15 @@ class MovieListCreate(generics.ListCreateAPIView):
 class ReviewListCreate(generics.ListCreateAPIView):
     queryset = Review.objects.all()
     serializer_class = ReviewSerializer
+    
+class CastDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Cast.objects.all()
+    serializer_class = CastSerializer
+
+class MovieDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Movie.objects.all()
+    serializer_class = MovieSerializer
+
+class ReviewDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
