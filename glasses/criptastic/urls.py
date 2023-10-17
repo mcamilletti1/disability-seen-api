@@ -9,4 +9,5 @@ urlpatterns = [
     path('api/movie/<int:pk>/', views.MovieDetail.as_view()),
     path('api/review/<int:pk>/', views.ReviewDetail.as_view()),
     path('api/movie/<int:movie_id>/cast/', views.CastMembersByMovie.as_view()),
+    path('api/movie/<int:movie_id>/reviews/', views.ReviewsByMovie.as_view()),
 ]
