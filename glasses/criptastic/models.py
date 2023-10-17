@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 # Create your models here.
 
 class Cast(models.Model):
@@ -31,7 +32,7 @@ class Movie(models.Model):
 class Review(models.Model):
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE, related_name='reviews')
     title = models.CharField(default="No Title", max_length=1000)
-    reviewer_name = models.CharField(default="Anonymous", max_length=1000)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     review_text = models.TextField(default="Review Text Not Available", max_length=1000)
     date = models.CharField(default="No Date Added", max_length=1000)
     casting_score = models.FloatField()
